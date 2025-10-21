@@ -1,0 +1,16 @@
+{
+  "name": "node-tutorial",
+  "version": "1.0.0",
+  "description": "This is a tutorial for the Java Script.",
+  "license": "ISC",
+  "author": "Ahsan Hafeez",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "nodemon": "^3.1.10"
+  }
+}
