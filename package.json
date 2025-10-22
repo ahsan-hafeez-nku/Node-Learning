@@ -4,13 +4,14 @@
   "description": "This is a tutorial for the Java Script.",
   "license": "ISC",
   "author": "Ahsan Hafeez",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "express_tut.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "express": "^5.1.0",
     "nodemon": "^3.1.10"
   }
 }
