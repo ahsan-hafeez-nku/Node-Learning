@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+</head>
+<body>
+    <h1>Form Submitted Successfully :) </h1>
+    <h2>My name is <%= name %>.</h2>
+    <h3>Age <%= age %></h3>
+    <h3>Email <%= email %></h3>
+    <h3>Password: <%= password %></h3>
+
+    <h1>List of Users:</h1>
+    <% for(let i=0; i<users.length; i++) {%>
+        <ul><li><%= users[i] %></li></ul>
+    <%}%>
+    <% if(users.length-1 >5) {%>
+        <h1>Many Users</h1>
+    <%} else{%>
+        <h1>Few Users</h1>
+    <% }%>
+
+
+</body>
+</html>
