@@ -11,4 +11,4 @@ app.post('/submit', renderUserData);
 app.get('/userPage', showListOfUsers);
 app.get('/userPage/user/:name', renderUserPages);
 
-app.listen(6200);   
+app.listen(2200);   

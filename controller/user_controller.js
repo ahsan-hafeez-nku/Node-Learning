@@ -19,8 +19,6 @@ export function showListOfUsers(req, resp) {
     for (let i = 0; i < users.length; i++) {
         data += `<ul>`
         data += `<li><a href="/userPage/user/${users[i]}">${users[i].charAt(0).toUpperCase() + users[i].slice(1)}</a></li>`;
-
-        // console.log(users[i]);
         data += `</ul>`
     }
     resp.send(data);

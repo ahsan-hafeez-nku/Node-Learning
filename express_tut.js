@@ -64,7 +64,6 @@ app.post('/submit', (req, resp) => {
     console.log(req.body);
 });
 
-app.listen(6800);
 
 app.use((req, resp) => {
     resp.status(404).sendFile(absPath + '/404.html')
@@ -74,3 +73,4 @@ app.use((error, req, resp, next) => {
     resp.status(error.status || 500).send('Something went wrong, try again later');
 
 })
+app.listen(6800);
