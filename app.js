@@ -1,53 +1,53 @@
-const http = require('http');
-var age = 20;
-http.createServer((req, resp)=>{
-    resp.setHeader('content-type','text/html');
-    // resp.write('<h1>This is a new Server<\h1>');
+// import express from 'express';
+// import adminRoutes from './routes/admin.js';
+// import shopRoutes from './routes/shop.js';
+// import { absPathViews , absPathPublic} from "./utils/path.js";
 
-    resp.write(
-        `
-        <html>
-        <head>
-            <title>Node Tutorial</title>
-        </head>
-        <body>
-            <h1>This is a new Server<\h1>
-            <h2>This is a  using nodemon package for this.<\h2>
-            <h3>Age: `+age+` <\h3>
-            <h3>Age: `+new Date()+` <\h3>
-        </body>
-        </html>
+// const app = express();
+// app.use(express.urlencoded({ extended: false }));
+// app.use('/css',  express.static(absPathPublic + "/css"));
+// console.log(absPathPublic+'/css');
+// app.use(adminRoutes);
+// app.use(shopRoutes);
+// app.use((req, resp, next) => {
+//     resp.status(404).sendFile(absPathViews + '/404.html');
+// })
+// app.listen(3000);
 
-        `
-        
-        );
-    resp.end();
-    // process.end();
+// const path = require('path');
 
-}).listen(4800);
+// const express = require('express');
+// const bodyParser = require('body-parser');
+
+// const errorController = require('./controllers/error');import express from 'express';
 
 
-// var fs = require('fs');
-// var os = require('os');
+import path from 'path';
+import express from 'express';
+import { fileURLToPath } from 'url';
 
-// fs.writeFileSync('NewFile.txt','Hello World');
-
-// console.log(os.hostname());
-// console.log(os.platform());
-// console.log(os.arch());
-// console.log(os.cpus());
+import adminRoutes from './routes/admin.js';
+import shopRoutes from './routes/shop.js';
+import get404 from './controllers/error.js';
 
 
+// Recreate __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// var {userName} = require('./data');
-// console.log(userName);
+const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// console.log('Hello World!');
-// console.log(20+20);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// function add(num1, num2){
-//     return console.log(num1+num2);
-// }
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-// add(2002,5);
+app.use(get404);
+
+app.listen(3000, () => {
+  console.log('✅ Server running on http://localhost:3000');
+});
